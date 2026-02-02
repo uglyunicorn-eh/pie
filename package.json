@@ -20,11 +20,11 @@
     "prettier": "^3.8.1"
   },
   "peerDependencies": {
-    "hpke": "^1.0.3",
     "typescript": "^5",
     "valibot": "^1.2.0"
   },
   "dependencies": {
-    "@standard-schema/spec": "^1.1.0"
+    "@standard-schema/spec": "^1.1.0",
+    "hpke": "^1.0.3"
   }
 }
