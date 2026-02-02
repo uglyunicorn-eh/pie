@@ -6,23 +6,20 @@
       "name": "@uglyunicorn-eh/pie",
       "dependencies": {
         "@standard-schema/spec": "^1.1.0",
+        "hpke": "^1.0.3",
       },
       "devDependencies": {
-        "@lcov-viewer/cli": "^1.0.0",
         "@types/bun": "latest",
         "@valibot/to-json-schema": "^1.5.0",
         "prettier": "^3.8.1",
       },
       "peerDependencies": {
-        "hpke": "^1.0.3",
         "typescript": "^5",
         "valibot": "^1.2.0",
       },
     },
   },
   "packages": {
-    "@lcov-viewer/cli": ["@lcov-viewer/cli@1.3.0", "", { "dependencies": { "commander": "^9.3.0" }, "bin": { "lcov-viewer": "lib/index.js" } }, "sha512-A9altXh2ZyeuagYZsJqVja6WMlgGJGcV+SHOOgIZB+CA2bfk78vgOqrPJrWg+IflFpoEzo1QeqwH4WbKSM4d9A=="],
-
     "@standard-schema/spec": ["@standard-schema/spec@1.1.0", "", {}, "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="],
 
     "@types/bun": ["@types/bun@1.3.6", "", { "dependencies": { "bun-types": "1.3.6" } }, "sha512-uWCv6FO/8LcpREhenN1d1b6fcspAB+cefwD7uti8C8VffIv0Um08TKMn98FynpTiU38+y2dUO55T11NgDt8VAA=="],
@@ -32,8 +29,6 @@
     "@valibot/to-json-schema": ["@valibot/to-json-schema@1.5.0", "", { "peerDependencies": { "valibot": "^1.2.0" } }, "sha512-GE7DmSr1C2UCWPiV0upRH6mv0cCPsqYGs819fb6srCS1tWhyXrkGGe+zxUiwzn/L1BOfADH4sNjY/YHCuP8phQ=="],
 
     "bun-types": ["bun-types@1.3.6", "", { "dependencies": { "@types/node": "*" } }, "sha512-OlFwHcnNV99r//9v5IIOgQ9Uk37gZqrNMCcqEaExdkVq3Avwqok1bJFmvGMCkCE0FqzdY8VMOZpfpR3lwI+CsQ=="],
-
-    "commander": ["commander@9.5.0", "", {}, "sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ=="],
 
     "hpke": ["hpke@1.0.3", "", {}, "sha512-82pfChKRiz5vQXKSNhXCigoCp+HQWHePqgjJVuIZQFVGCYOCIWL41DAF2o6UJLwHzM7jkOGG55XotA0B5m2+uw=="],
 
