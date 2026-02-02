@@ -1,4 +1,6 @@
-# @uglyunicorn-eh/pie
+# π
+
+Protected Information Envelope.
 
 To install dependencies:
 
