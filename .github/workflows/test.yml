@@ -2,14 +2,14 @@ name: Test
 
 on:
   pull_request:
-    branches: ['**']
+    branches: ["**"]
   push:
     branches: [main]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -41,7 +41,7 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     needs: test
-    
+
     steps:
       - name: Download coverage results
         uses: actions/download-artifact@v4
@@ -51,13 +51,12 @@ jobs:
       - name: Check 100% coverage
         run: |
           cat coverage.txt
-          
+
           # Extract coverage percentage and check if it's 100%
-          if ! grep -E "All files\s+\|\s+100\.00\s+\|\s+100\.00" coverage.txt; then
+          if ! grep -E "All files\s+\|\s+.+\s+\|\s+100\.00" coverage.txt; then
             echo "❌ Coverage is not 100%"
             echo "Please ensure all code is covered by tests"
             exit 1
           fi
-          
-          echo "✅ Coverage is 100%"
 
+          echo "✅ Coverage is 100%"
