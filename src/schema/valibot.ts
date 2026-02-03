@@ -1,5 +1,7 @@
 import * as v from "valibot";
 
+import { type EnvelopeContext as EnvelopeContextType } from "..";
+
 import type { CipherContext, DecipherContext, RetranslateContext, RepeatContext } from "..";
 
 type AnySchema<I> =
@@ -12,6 +14,8 @@ const envelopeSchema = v.object({
 });
 
 export type Envelope = v.InferOutput<typeof envelopeSchema>;
+
+export type EnvelopeContext = EnvelopeContextType<Envelope>;
 
 export function envelope<T>(
   schema: AnySchema<T>,

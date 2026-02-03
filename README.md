@@ -16,11 +16,10 @@ bun add @uglyunicorn/pie valibot
 ```ts
 import * as v from "valibot";
 
-import { envelope, type Envelope } from "@uglyunicorn/pie/valibot";
+import { envelope, type EnvelopeContext } from "@uglyunicorn/pie/valibot";
 import { createCipherSuite, envelopeContext } from "@uglyunicorn/pie/crypto";
-import type { EnvelopeContext } from "@uglyunicorn/pie";
 
-const userProfileSchema = (ctx: EnvelopeContext<Envelope>) =>
+const userProfileSchema = (ctx: EnvelopeContext) =>
   v.objectAsync({
     identity: envelope(
       v.object({

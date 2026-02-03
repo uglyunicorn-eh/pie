@@ -4,6 +4,8 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
+    "build": "bun run scripts/build.ts && bun run build:types",
+    "build:types": "tsc --project tsconfig.build.json",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "bun test",
