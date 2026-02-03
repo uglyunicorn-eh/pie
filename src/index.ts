@@ -15,6 +15,12 @@ export interface RetranslateContext<E> {
 
 export interface RepeatContext {}
 
+export type EnvelopeContext<E> =
+  | CipherContext<E>
+  | DecipherContext<E>
+  | RetranslateContext<E>
+  | RepeatContext;
+
 /**
  * Envelope schema field.
  */
