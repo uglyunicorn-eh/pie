@@ -32,6 +32,9 @@ describe("hpke", () => {
       HpkeEnvelopeError
     );
   });
+  test("envelopeContext with no opts returns undefined", () => {
+    expect(envelopeContext()).toBeUndefined();
+  });
   test("envelopeContext and envelope() branches", () => {
     const decipher = envelopeContext({ in: keyPair });
     const cipher = envelopeContext({ out: keyPair });
