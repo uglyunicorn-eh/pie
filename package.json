@@ -1,0 +1,32 @@
+{
+  "name": "@uglyunicorn/pie",
+  "version": "0.1.0",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bun run scripts/build.ts && bun run build:types",
+    "build:types": "tsc --project tsconfig.build.json",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./crypto": "./src/crypto/index.ts",
+    "./valibot": "./src/schema/valibot.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@valibot/to-json-schema": "^1.5.0",
+    "prettier": "^3.8.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5",
+    "valibot": "^1.2.0"
+  },
+  "dependencies": {
+    "@standard-schema/spec": "^1.1.0",
+    "hpke": "^1.0.3"
+  }
+}

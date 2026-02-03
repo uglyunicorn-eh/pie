@@ -1,0 +1,79 @@
+name: Release
+
+on:
+  push:
+    branches: ["main"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install deps
+        run: bun install --frozen-lockfile
+
+      - name: Read version from package.json
+        id: pkg
+        run: |
+          VERSION=$(bun --print 'require("./package.json").version')
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "tag=v${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Check if tag exists
+        id: tagcheck
+        run: |
+          if git rev-parse "${{ steps.pkg.outputs.tag }}" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build
+        if: steps.tagcheck.outputs.exists == 'false'
+        run: bun run build
+
+      - name: Create tag
+        if: steps.tagcheck.outputs.exists == 'false'
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git tag ${{ steps.pkg.outputs.tag }}
+          git push origin ${{ steps.pkg.outputs.tag }}
+
+      - name: Capture merge commit message
+        id: msg
+        run: |
+          TITLE=$(git log -1 --pretty=%s)
+          BODY=$(git log -1 --pretty=%b)
+          echo "title=${TITLE}" >> $GITHUB_OUTPUT
+          printf "%s" "$BODY" > body.txt
+
+      - name: Create GitHub Release
+        if: steps.tagcheck.outputs.exists == 'false'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.pkg.outputs.tag }}
+          name: ${{ steps.pkg.outputs.tag }}
+          body_path: body.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to npm
+        if: steps.tagcheck.outputs.exists == 'false'
+        env:
+          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          bun publish -p --access public
