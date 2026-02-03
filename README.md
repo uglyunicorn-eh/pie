@@ -2,6 +2,8 @@
 
 Protected Information Envelope — Schema-validated envelopes using [HPKE](https://www.rfc-editor.org/rfc/rfc9180.html).
 
+[![codecov](https://codecov.io/gh/uglyunicorn-eh/pie/graph/badge.svg?token=yBE5KPG0WI)](https://codecov.io/gh/uglyunicorn-eh/pie)
+
 Validate payloads with your schema, seal with a public key, and open with the matching private key. Supports retranslation (decrypt with one key, re-encrypt with another) so the original key cannot open the new envelope.
 
 ## Install
