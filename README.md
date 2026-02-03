@@ -64,3 +64,23 @@ Output:
   "weight": 70
 }
 ```
+
+```ts
+const decryptContext = envelopeContext({ in: keyPair });
+
+const decrypted = await v.parseAsync(userProfileSchema(decryptContext), sealed);
+console.log(decrypted);
+```
+
+Output:
+
+```json
+{
+  "identity": {
+    "name": "John Doe",
+    "email": "john.doe@example.com"
+  },
+  "height": 180,
+  "weight": 70
+}
+```
