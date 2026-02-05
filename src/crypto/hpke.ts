@@ -9,7 +9,7 @@ import {
 } from "hpke";
 
 import { decodeBuffer, deserialize, encodeBuffer, serialize } from "../lib/utils";
-import type { CipherContext as CipherContextType, DecipherContext, RetranslateContext } from "..";
+import type { CipherContext, DecipherContext, RetranslateContext } from "..";
 
 export class HpkeEnvelopeError extends Error {}
 
@@ -89,7 +89,7 @@ export async function openEnvelope<T>(
   return validated.value;
 }
 
-export function envelopeContext(opts: { out: Pick<KeyPair, "publicKey"> }): CipherContext;
+export function envelopeContext(opts: { out: Pick<KeyPair, "publicKey"> }): CipherContext<Envelope>;
 
 export function envelopeContext(opts: {
   in: Pick<KeyPair, "privateKey">;
@@ -119,7 +119,7 @@ export function envelopeContext(opts?: any) {
   if (opts?.out) {
     return {
       seal: (schema, data) => sealEnvelope(schema, data, opts.out.publicKey),
-    } as CipherContext;
+    } as CipherContext<Envelope>;
   }
 
   return undefined;
