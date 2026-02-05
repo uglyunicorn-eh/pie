@@ -1,1 +1,1 @@
-export { createCipherSuite, envelopeContext } from "./hpke";
+export { createCipherSuite, envelopeContext, type CipherContext, type Envelope } from "./hpke";
