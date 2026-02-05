@@ -18,8 +18,6 @@ export interface Envelope {
   enc: string;
 }
 
-export type CipherContext = CipherContextType<Envelope>;
-
 export function createCipherSuite(): CipherSuite {
   return new CipherSuite(KEM_DHKEM_P256_HKDF_SHA256, KDF_HKDF_SHA256, AEAD_AES_128_GCM);
 }
