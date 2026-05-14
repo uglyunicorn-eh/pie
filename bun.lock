@@ -6,15 +6,15 @@
       "name": "@uglyunicorn-eh/pie",
       "dependencies": {
         "@standard-schema/spec": "^1.1.0",
-        "hpke": "^1.0.3",
+        "hpke": "^1.1.0",
       },
       "devDependencies": {
         "@types/bun": "latest",
-        "@valibot/to-json-schema": "^1.5.0",
-        "prettier": "^3.8.1",
+        "@valibot/to-json-schema": "^1.7.0",
+        "prettier": "^3.8.3",
       },
       "peerDependencies": {
-        "typescript": "^5",
+        "typescript": "^5.9.3",
         "valibot": "^1.2.0",
       },
     },
