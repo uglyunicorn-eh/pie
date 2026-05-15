@@ -11,6 +11,7 @@ for (const { entry, outdir } of builds) {
     entrypoints: [entry],
     outdir,
     target: "node",
+    minify: true,
   });
 
   if (!result.success) {
