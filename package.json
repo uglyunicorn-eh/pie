@@ -1,6 +1,6 @@
 {
   "name": "@uglyunicorn/pie",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Schema-validated envelopes using HPKE",
   "keywords": [
     "schema",
@@ -27,11 +27,26 @@
     "test": "bun test",
     "test:coverage": "bun test --coverage"
   },
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts",
-    "./crypto": "./src/crypto/index.ts",
-    "./valibot": "./src/schema/valibot.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./crypto": {
+      "types": "./dist/crypto/index.d.ts",
+      "default": "./dist/crypto/index.js"
+    },
+    "./valibot": {
+      "types": "./dist/schema/valibot.d.ts",
+      "default": "./dist/schema/valibot.js"
+    }
   },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "devDependencies": {
     "@types/bun": "latest",
     "@valibot/to-json-schema": "^1.7.0",
