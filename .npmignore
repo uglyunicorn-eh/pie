@@ -1,0 +1,7 @@
+.cursor/
+.github/
+scripts/
+tests/
+.prettierignore
+.prettierrc
+body.txt
