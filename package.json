@@ -1,6 +1,6 @@
 {
   "name": "@uglyunicorn/pie",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Schema-validated envelopes using HPKE",
   "keywords": [
     "schema",
@@ -58,6 +58,6 @@
   },
   "dependencies": {
     "@standard-schema/spec": "^1.1.0",
-    "hpke": "^1.1.0"
+    "hpke": "^1.1.1"
   }
 }
