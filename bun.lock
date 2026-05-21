@@ -30,7 +30,7 @@
 
     "bun-types": ["bun-types@1.3.14", "", { "dependencies": { "@types/node": "*" } }, "sha512-4N0ig0fEomHt5R0KCFWjovxow98rIoRwKolrYdCcknNwMekCXRnWEUvgu5soYV8QXtVsrUD8B95MBOZGPvr6KQ=="],
 
-    "hpke": ["hpke@1.1.0", "", {}, "sha512-ta7pyqOF+ZIpDIRAH/4t+iE1vNrXfPHRLfYVCbuQKDOcYA6v/xBeyZStq2iglAEIafPkS0111G2wItUY2q/PiQ=="],
+    "hpke": ["hpke@1.1.1", "", {}, "sha512-FOx9R77nOSAWuKPoHDC3oWSslpjgaIaxl9W3ZaXuT/XRIwRioNGzSpoJuXOkR74oJw0lScvwHDSZUNOqtkUiGQ=="],
 
     "prettier": ["prettier@3.8.3", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw=="],
 
