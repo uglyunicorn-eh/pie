@@ -75,12 +75,11 @@ jobs:
         if: steps.tagcheck.outputs.exists == 'false'
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '24'
           registry-url: https://registry.npmjs.org
+          package-manager-cache: false
 
       - name: Publish to npm
         if: steps.tagcheck.outputs.exists == 'false'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npm publish --provenance --access public
+          npm publish --access public
