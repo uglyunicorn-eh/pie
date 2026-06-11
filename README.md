@@ -10,7 +10,7 @@ Validate payloads with your schema, seal with a public key, and open with the ma
 
 ```bash
 bun add @uglyunicorn/pie valibot hpke
-# or: npm install @uglyunicorn/pie valibot
+# or: npm install @uglyunicorn/pie valibot hpke
 ```
 
 ## Example (Valibot)
